@@ -4,11 +4,13 @@ const BLOG = {
   // ============================================
   // 自定义 API 配置（新增）
   // ============================================
-  USE_CUSTOM_API: process.env.NEXT_PUBLIC_USE_CUSTOM_API === 'true' || false, // 是否使用自建 API
+  USE_CUSTOM_API: process.env.NEXT_PUBLIC_USE_CUSTOM_API === 'true' || false, // 是否使用自建 API（多租户模式）
   CUSTOM_API_BASE_URL: process.env.NEXT_PUBLIC_WORKER_API || 'https://api.notionnext.com', // Worker API 地址
 
-  API_BASE_URL: process.env.API_BASE_URL || 'https://www.notion.so/api/v3', // API默认请求地址,可以配置成自己的地址例如：https://[xxxxx].notion.site/api/v3
-  // Important page_id！！！Duplicate Template from  https://tanghh.notion.site/02ab3b8678004aa69e9e415905ef32a5
+  API_BASE_URL: process.env.API_BASE_URL || 'https://www.notion.so/api/v3', // API默认请求地址
+  
+  // Important page_id！！！（多租户模式下可选，由 Worker 动态提供）
+  // Duplicate Template from  https://tanghh.notion.site/02ab3b8678004aa69e9e415905ef32a5
   NOTION_PAGE_ID:
     process.env.NOTION_PAGE_ID ||
     '02ab3b8678004aa69e9e415905ef32a5,en:7c1d570661754c8fbc568e00a01fd70e',
